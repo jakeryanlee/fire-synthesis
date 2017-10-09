@@ -68,5 +68,5 @@ class FirePlugin extends BasePlugin {
 }
 
 FirePlugin.prototype.name = "FirePlugin";
-FirePlugin.prototype.version = "1";
+FirePlugin.prototype.version = "1.0.0";
 FirePlugin.prototype.uniqueID = "FirePlugin";
