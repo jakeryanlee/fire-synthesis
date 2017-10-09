@@ -20,8 +20,8 @@ class Lapping {
     init(out, n) {
         this.noise = n;
         this.shelf.type = 'highshelf';
-        this.shelf.frequency.value = 100;
-        this.boostGain.gain.value = 2;
+        this.shelf.frequency.value = 150;
+        this.boostGain.gain.value = 0.4;
         this.lpf.type = "lowpass";
         this.lpf.frequency.value = 200;
         this.hpf.type = "highpass";
@@ -29,7 +29,7 @@ class Lapping {
         this.hpf2.type = "highpass";
         this.hpf2.frequency.value = 25;
         this.bp.type = "bandpass";
-        this.bp.frequency.value = 70;
+        this.bp.frequency.value = 80;
         this.bp.Q.value = 5;
         this.distortion.curve = this.makeDistortionCurve(2);
 

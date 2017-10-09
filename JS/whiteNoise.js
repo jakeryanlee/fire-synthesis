@@ -2,7 +2,7 @@ class whiteNoise {
 
     constructor(c) {
         this.ctx = c;
-        this.bufferSize = 1024;
+        this.bufferSize = 256;
         this.noiseGain = this.ctx.createGain();
         this.noiseGain.gain.value = 0;
         this.noise = this.ctx.createScriptProcessor(this.bufferSize, 1, 1);
@@ -14,7 +14,7 @@ class whiteNoise {
         };
         console.log(this.noise);
         this.noise.connect(this.noiseGain).connect(this.ctx.destination);
-     }
+    }
 
     play() {
         console.log(this.noiseGain);

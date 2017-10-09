@@ -4,7 +4,7 @@
  */
 var playButton = document.getElementById("play");
 playButton.onclick = function () {
-    outputGain.gain.linearRampToValueAtTime(20, context.currentTime + 2);
+    param.node.parameters.setParameterByName('gain', 70);
 };
 
 /**
@@ -13,5 +13,5 @@ playButton.onclick = function () {
  */
 var stopButton = document.getElementById("stop");
 stopButton.onclick = function() {
-    outputGain.gain.linearRampToValueAtTime(0, context.currentTime + 2);
+    param.node.parameters.setParameterByName('gain', 0);
 };
