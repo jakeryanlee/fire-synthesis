@@ -13,11 +13,16 @@ class FirePlugin extends BasePlugin {
         this.hiss = new Hissing(this.context);
         this.highCrackling = new Crackling(this.context);
         this.pop = new Crackling(this.context);
+        this.highCrackling.density.gain.value = 200;
 
-        this.gain_parameter = this.parameters.createNumberParameter("gain", 0, 0, 12);
+        this.gain_parameter = this.parameters.createNumberParameter("gain", 0, 0, 20);
         this.gain_parameter.bindToAudioParam(this.masterGain.gain);
         this.lapping_parameter = this.parameters.createNumberParameter("lappingFreq", 80, 50, 200);
         this.lapping_parameter.bindToAudioParam(this.lap.bp.frequency);
+        this.crackling_parameter = this.parameters.createNumberParameter("crackDensity", 200, 100, 1000);
+        this.crackling_parameter.bindToAudioParam(this.highCrackling.density.gain);
+        this.hissing_parameter = this.parameters.createNumberParameter("hissingModFreq", 5, 1, 10);
+        this.hissing_parameter.bindToAudioParam(this.hiss.modLPF.frequency);
 
         this.highCrackling.init(this.masterGain, this.noise);
         this.highCrackling.setGain(0.003);
@@ -36,7 +41,7 @@ class FirePlugin extends BasePlugin {
     }
 
     crackling() {
-        this.delay = Math.random() * (200 - 50) + 50;
+        this.delay = Math.random() * (this.highCrackling.density.gain.value - 50) + 50;
         this.crackFreq = Math.random() * (10000 - 5000) + 5000;
         this.crackQ = Math.random() * (5 - 2) + 2;
         this.crackAttack = Math.random() * (0.0002 + 0.00001) + 0.00001;
@@ -53,7 +58,7 @@ class FirePlugin extends BasePlugin {
     }
 
     crackling_2() {
-        this.pop_delay = Math.random() * (1000 - 200) + 300;
+        this.pop_delay = Math.random() * ((this.highCrackling.density.gain.value + 800) - 200) + 200;
         this.pop_crackFreq = Math.random() * (9000 - 1000) + 1000;
         this.pop_crackQ = Math.random() * (8 - 3) + 3;
         this.pop_crackAttack = Math.random() * (0.0002 + 0.00001) + 0.00001;

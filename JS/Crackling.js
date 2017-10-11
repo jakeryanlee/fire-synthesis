@@ -12,6 +12,7 @@ class Crackling {
         this.bp = this.ctx.createBiquadFilter();
         this.env = this.ctx.createGain();
         this.outGain = this.ctx.createGain();
+        this.density = this.ctx.createGain();
     }
 
     init(out, n) {
