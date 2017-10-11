@@ -16,6 +16,8 @@ class FirePlugin extends BasePlugin {
 
         this.gain_parameter = this.parameters.createNumberParameter("gain", 0, 0, 12);
         this.gain_parameter.bindToAudioParam(this.masterGain.gain);
+        this.lapping_parameter = this.parameters.createNumberParameter("lappingFreq", 80, 50, 200);
+        this.lapping_parameter.bindToAudioParam(this.lap.bp.frequency);
 
         this.highCrackling.init(this.masterGain, this.noise);
         this.highCrackling.setGain(0.003);

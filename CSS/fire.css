@@ -62,13 +62,13 @@ body {
 
 .fire {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-color: #111;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 .fire-main {

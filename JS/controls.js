@@ -1,10 +1,10 @@
 var muteSwitch = new Nexus.Toggle('#mute', {
-    'size' : [40, 20],
-    'state' : false
+    'size': [40, 20],
+    'state': false
 });
 
-muteSwitch.on('change', function(v) {
-    if(v) {
+muteSwitch.on('change', function (v) {
+    if (v) {
         param.node.parameters.setParameterByName('gain', 12);
     } else {
         param.node.parameters.setParameterByName('gain', 0);
@@ -12,16 +12,21 @@ muteSwitch.on('change', function(v) {
 });
 
 var lappingSlider = new Nexus.Slider('#lappingIntensity', {
-    'size': [120,20],
+    'size': [120, 20],
     'mode': 'relative',  // 'relative' or 'absolute'
-    'min': 0,
-    'max': 1,
+    'min': 60,
+    'max': 300,
     'step': 0,
     'value': 0
 });
 
+lappingSlider.on('change', function (v) {
+    console.log(v);
+    param.node.parameters.setParameterByName('lappingFreq', v);
+});
+
 var cracklingSlider = new Nexus.Slider('#cracklingIntensity', {
-    'size': [120,20],
+    'size': [120, 20],
     'mode': 'relative',  // 'relative' or 'absolute'
     'min': 0,
     'max': 1,
@@ -30,7 +35,7 @@ var cracklingSlider = new Nexus.Slider('#cracklingIntensity', {
 });
 
 var hissingSlider = new Nexus.Slider('#hissingIntensity', {
-    'size': [120,20],
+    'size': [120, 20],
     'mode': 'relative',  // 'relative' or 'absolute'
     'min': 0,
     'max': 1,

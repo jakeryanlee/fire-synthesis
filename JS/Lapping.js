@@ -23,11 +23,11 @@ class Lapping {
         this.shelf.frequency.value = 150;
         this.boostGain.gain.value = 0.4;
         this.lpf.type = "lowpass";
-        this.lpf.frequency.value = 200;
+        this.lpf.frequency.value = 300;
         this.hpf.type = "highpass";
-        this.hpf.frequency.value = 25;
+        this.hpf.frequency.value = 30;
         this.hpf2.type = "highpass";
-        this.hpf2.frequency.value = 25;
+        this.hpf2.frequency.value = 30;
         this.bp.type = "bandpass";
         this.bp.frequency.value = 80;
         this.bp.Q.value = 5;
